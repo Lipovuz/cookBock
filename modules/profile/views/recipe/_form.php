@@ -1,5 +1,6 @@
 <?php
 
+use app\models\Kitchens;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
@@ -23,6 +24,9 @@ mihaildev\elfinder\Assets::noConflict($this);
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map(Category::find()
+        ->all(), 'id', 'name')) ?>
+
+    <?= $form->field($model, 'kitchens_id')->dropDownList(ArrayHelper::map(Kitchens::find()
         ->all(), 'id', 'name')) ?>
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>

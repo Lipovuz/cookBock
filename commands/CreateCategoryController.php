@@ -30,8 +30,8 @@ class CreateCategoryController extends Controller
     public function actionIndex()
     {
         $existCategories = [];
-        for ($i=0; $i < 50; $i++) {
-            $faker = Factory::create('es_RU');
+        for ($i=0; $i < 30; $i++) {
+            $faker = Factory::create('ru_RU');
             $category = new Category();
             if (count($existCategories) > 0 && ($i % 2 === 0)) {
                 $category->parent_id = $existCategories[rand(0, count($existCategories)-1)];

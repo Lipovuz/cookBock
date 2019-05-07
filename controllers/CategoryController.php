@@ -50,7 +50,6 @@ class CategoryController extends BaseController
 
         return $this->render('view',
             [
-                'category' => $category,
                 'dataProvider' => $dataProvider,
             ]
         );

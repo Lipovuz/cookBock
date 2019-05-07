@@ -4,6 +4,7 @@ namespace app\modules\profile\controllers;
 
 use app\controllers\BaseController;
 use app\rbac\Rbac;
+use function Couchbase\defaultDecoder;
 use Yii;
 use app\models\Recipe;
 use yii\data\ActiveDataProvider;
@@ -44,6 +45,19 @@ class RecipeController extends BaseController
         $this->layout = '@app/views/layouts/main.php';
 
         return $this->layout;
+    }
+
+    public function actionView($recipe_slug)
+    {
+        if (Yii::$app->user->can(Rbac::PERMISSION_ADMIN_PANEL)) {
+            $this->layout = '@app/modules/admin/views/layouts/main.php';
+        }
+
+        $model = $this->findModelBySlug($recipe_slug);
+        $this->setMetaTag($model->meta_description,$model->meta_keywords);
+        return $this->render('view', [
+            'model' => $model,
+        ]);
     }
 
     /**

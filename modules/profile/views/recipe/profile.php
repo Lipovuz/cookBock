@@ -9,11 +9,10 @@ use yii\helpers\Url;
 /* @var $model app\models\User */
 
 $this->title='Профіль|'.$model->name;?>
-
 <div class="view-product col-sm-7">
     <?php
     if (!$model->img == null) {
-        echo Html::img("@web/img/{$model->img}", ['width' => 200, 'height' => 200]);
+        echo Html::img("@web/img/{$model->img}", ['width' => 200, 'height' => 200, 'float' => 'right']);
     }else{
         echo Html::img("@web/img/no-image.png", ['width' => 200, 'height' => 200]);
     }?>
@@ -28,7 +27,6 @@ $this->title='Профіль|'.$model->name;?>
     <p><b>Телефон:</b><?=$model->tel?></p>
     <?= Html::a('Редагувати профіль',Url::to(['/admin/user/update','id'=>Yii::$app->user->id]), ['class' => 'btn btn-success']) ?>
 </div>
-
 <div class="recipe-index">
     <br>
     <h1>Мої статті</h1>

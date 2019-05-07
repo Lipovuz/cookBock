@@ -17,6 +17,30 @@ class m190507_101347_create_news_kitchens extends BaseMigration
             'name' => $this->string(255)->notNull(),
         ], $this->tableOptions);
 
+        $this->batchInsert(
+            '{{%kitchens}}',
+            [
+                'name',
+            ],
+            [
+                [
+                    'Тайські',
+                ],
+                [
+                    'Китайські',
+                ],
+                [
+                    'Італійська',
+                ],
+                [
+                    'Українська',
+                ],
+                [
+                    'Французька',
+                ],
+            ]
+        );
+
         $this->createIndex('FK_kitchens_kitchens_id', '{{%recipe}}', 'kitchens_id');
         $this->addForeignKey(
             'FK_kitchens_kitchens_id', '{{%recipe}}', 'kitchens_id', '{{%kitchens}}', 'id', 'RESTRICT', 'RESTRICT'

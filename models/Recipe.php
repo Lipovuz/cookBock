@@ -11,6 +11,7 @@ use app\modules\admin\models\Category;
  *
  * @property int $id
  * @property int $category_id
+ * @property int $kitchens_id
  * @property int $user_id
  * @property string $name
  * @property string $description
@@ -57,7 +58,7 @@ class Recipe extends ActiveRecord
     {
         return [
             [['status'],'default','value'=>User::STATUS_WORKED],
-            [[ 'category_id',  'name', 'text', 'status'], 'required'],
+            [[ 'category_id', 'kitchens_id',  'name', 'text', 'status'], 'required'],
             [['id', 'category_id', 'user_id', 'status'], 'integer'],
             [['text','description','preview','meta_description','meta_keywords'], 'string'],
             [['name'], 'string', 'max' => 255],
@@ -70,6 +71,7 @@ class Recipe extends ActiveRecord
         return [
             'id' => 'ID',
             'category_id' => 'Категорія',
+            'kitchens_id' => 'Вид кухні',
             'user_id' => 'User ID',
             'name' => 'Назва',
             'description' => 'Короткий опис',

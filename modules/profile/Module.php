@@ -18,12 +18,12 @@ class Module extends Modules
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index'],
+                        'actions' => ['index','view'],
                         'allow' => true,
                         'roles' => [Rbac::ROLE_ADMIN],
                     ],
                     [
-                        'actions' => ['create','profile','update','delete','image-delete'],
+                        'actions' => ['create','profile','update','delete','image-delete', 'view'],
                         'allow' => true,
                         'roles' => [Rbac::ROLE_USER],
                     ],

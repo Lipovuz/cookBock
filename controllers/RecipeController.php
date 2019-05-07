@@ -8,8 +8,8 @@
 
 namespace app\controllers;
 
-
 use app\rbac\Rbac;
+use function Couchbase\defaultDecoder;
 use Yii;
 use yii\web\NotFoundHttpException;
 

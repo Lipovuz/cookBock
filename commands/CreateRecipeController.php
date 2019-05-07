@@ -7,9 +7,11 @@
  */
 namespace app\commands;
 
+use app\models\Kitchens;
 use app\models\Recipe;
 use app\models\User;
 use app\modules\admin\models\Category;
+use Faker\Factory;
 use yii\console\Controller;
 
 /**
@@ -29,13 +31,15 @@ class CreateRecipeController extends Controller
      */
     public function actionIndex()
     {
-        for ($i=0; $i < 200; $i++) {
-            $faker = \Faker\Factory::create('es_RU');
+        for ($i=0; $i < 50; $i++) {
+            $faker = Factory::create('ru_RU');
             $recipe = new Recipe();
             $category_id = rand(1,count(Category::find()->all()));
+            $kitchens_id = rand(1,count(Kitchens::find()->all()));
             $user_id = rand(1,count(User::find()->all()));
 
             $recipe -> category_id = $category_id;
+            $recipe -> kitchens_id = $kitchens_id;
             $recipe -> user_id = $user_id;
             $recipe -> name = $faker->city;
             $recipe -> description = $faker->city;
