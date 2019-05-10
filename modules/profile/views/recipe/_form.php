@@ -1,6 +1,7 @@
 <?php
 
 use app\models\Kitchens;
+use wbraganca\dynamicform\DynamicFormWidget;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
@@ -40,8 +41,7 @@ mihaildev\elfinder\Assets::noConflict($this);
         <?=Html::img("@web/img/{$model->preview}",['width'=>200,'height'=>200]) ?>
         <a href="<?= Url::to(['recipe/image-delete', 'id' => $model->id]) ?>"
            onclick="return confirm('При видалені прев\'ю, сторінка буде перезапущена')" >Видалити прев'ю</a><br>
-    <?php }
-    else{
+    <?php } else {
         echo $form->field($model, 'preview')->fileInput();
     }?>
 
@@ -49,13 +49,11 @@ mihaildev\elfinder\Assets::noConflict($this);
         ?>
         <b>Додаткові поля</b>
         <div class="meta">
-
             <?= $form->field($model, 'meta_description')->textInput(['maxlength' => true]) ?>
 
             <?= $form->field($model, 'meta_keywords')->textInput(['maxlength' => true]) ?>
         </div>
-        <?php
-        echo $form->field($model, 'status')->dropDownList(User::getStatuses());
+        <?= $form->field($model, 'status')->dropDownList(User::getStatuses());
     }?>
 
     <div class="form-group">

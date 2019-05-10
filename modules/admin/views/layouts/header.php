@@ -10,7 +10,7 @@ use yii\helpers\Url;
 <header class="main-header">
 
     <?= Html::a(
-            '<span class="logo-mini">Blog</span><span class="logo-lg">' . 'Blog' . '</span>',
+            '<span class="logo-mini">К.р.</span><span class="logo-lg">' . 'Кулінарні рецепти' . '</span>',
             Yii::$app->homeUrl,
             ['class' => 'logo']) ?>
 

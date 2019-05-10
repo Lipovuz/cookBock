@@ -34,19 +34,24 @@ class Recipe extends ActiveRecord
 
     public function getCategory()
     {
-        return $this->hasOne(Category::className(), ['id' => 'category_id']);
+        return $this->hasOne(Category::class, ['id' => 'category_id']);
+    }
+
+    public function getKitchens()
+    {
+        return $this->hasOne(Kitchens::class, ['id' => 'kitchens_id']);
     }
 
     public function getUser()
     {
-        return $this->hasOne(User::className(),['user_id'=>'id']);
+        return $this->hasOne(User::class,['user_id'=>'id']);
     }
 
     public function behaviors()
     {
         return [
             [
-                'class' => Slug::className(),
+                'class' => Slug::class,
                 'in_attribute' => 'name',
                 'out_attribute' => 'slug',
                 'translit' => true

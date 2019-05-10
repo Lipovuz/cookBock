@@ -4,6 +4,7 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Recipe */
+$this->title = $model->name;
 ?>
 <div class="recipe-view view">
     <h1><?=$model->name?></h1>

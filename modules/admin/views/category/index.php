@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use app\models\User;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -22,7 +23,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            'id',
             'name',
             [
                 'attribute' => 'parent_id',
@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'buttons' => [
                     'view' => function ($url, $model) {
                         return Html::a('<span class="glyphicon glyphicon-eye-open"></span>',
-                            \yii\helpers\Url::to(['/admin/category/view',
+                            Url::to(['/admin/category/view',
                                 'slug'=>$model->slug]),
                             [
                                 'title' => 'Переглянути',
